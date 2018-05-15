@@ -1,7 +1,8 @@
-package com.nutfreedom;
+package com.nutfreedom.pdf;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
+import com.nutfreedom.utilities.*;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;

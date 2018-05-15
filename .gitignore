@@ -1,2 +1,4 @@
 /.idea
-PdfFreedom.iml
+*.iml
+/target
+pom.xml.versionsBackup

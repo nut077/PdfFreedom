@@ -29,9 +29,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.nutfreedom</groupId>
-            <artifactId>freedomutilities</artifactId>
-            <version>1.0</version>
+            <groupId>com.github.nut077</groupId>
+            <artifactId>nutfreedom</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
 

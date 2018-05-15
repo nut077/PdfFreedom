@@ -1,4 +1,4 @@
-package com.nutfreedom;
+package com.nutfreedom.pdf;
 
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfContentByte;

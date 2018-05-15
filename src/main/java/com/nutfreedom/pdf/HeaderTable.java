@@ -1,7 +1,8 @@
-package com.nutfreedom;
+package com.nutfreedom.pdf;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
+import com.nutfreedom.utilities.CheckFreedom;
 
 public class HeaderTable extends PdfPageEventHelper {
     private float marginTop = 0;
