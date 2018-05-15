@@ -12,16 +12,14 @@ class CustomBorder implements PdfPCellEvent {
     private LineDash top;
     private LineDash bottom;
 
-    public CustomBorder(LineDash left, LineDash right,
-                        LineDash top, LineDash bottom) {
+    public CustomBorder(LineDash left, LineDash right, LineDash top, LineDash bottom) {
         this.left = left;
         this.right = right;
         this.top = top;
         this.bottom = bottom;
     }
 
-    public void cellLayout(PdfPCell cell, Rectangle position,
-                           PdfContentByte[] canvases) {
+    public void cellLayout(PdfPCell cell, Rectangle position, PdfContentByte[] canvases) {
         PdfContentByte canvas = canvases[PdfPTable.LINECANVAS];
         if (top != null) {
             canvas.saveState();
