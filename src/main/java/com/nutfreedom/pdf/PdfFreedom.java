@@ -23,11 +23,12 @@ public class PdfFreedom {
     private float marginTopDocument = 20;
     private float marginBottomDocument = 36;
     private String title;
-    private String font = "THSarabun";
     private String pathFont = "";
+    private String fontname = "THSarabun";
     private int fontSize = 12;
     private float padding = 6f;
-    private String path = "";
+    private String pathFile = "";
+    private String filename;
     private String table;
     private String tableHeader = "";
     private SplitFreedom split = new SplitFreedom();
@@ -69,16 +70,20 @@ public class PdfFreedom {
         this.tableHeader = tableHeader;
     }
 
-    public PdfFreedom(String path, String font, String title, String table) {
-        this.path = path;
-        this.pathFont = font;
+    public PdfFreedom(String pathFile, String filename, String pathFont, String fontname, String title, String table) {
+        this.pathFile = pathFile;
+        this.filename = filename;
+        this.pathFont = pathFont;
+        this.fontname = fontname;
         this.title = title;
         this.table = table;
     }
 
-    public PdfFreedom(String path, String font, String title, String table, String tableHeader) {
-        this.path = path;
-        this.pathFont = font;
+    public PdfFreedom(String pathFile, String filename, String pathFont, String fontname, String title, String table, String tableHeader) {
+        this.pathFile = pathFile;
+        this.filename = filename;
+        this.pathFont = pathFont;
+        this.fontname = fontname;
         this.title = title;
         this.table = table;
         this.tableHeader = tableHeader;
@@ -126,10 +131,6 @@ public class PdfFreedom {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public void setFont(String font) {
-        this.font = font;
     }
 
     public void setPadding(float padding) {
@@ -183,14 +184,14 @@ public class PdfFreedom {
     private BaseFont getBaseFont() {
         BaseFont baseFont = null;
         try {
-            if (check.isNotBlank(path)) {
-                if (check.isNotBlank(pathFont)) {
-                    baseFont = BaseFont.createFont(pathFont + ".ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED, true);
+            if (check.isNotBlank(pathFile)) {
+                if (check.isNotBlank(pathFont) && check.isNotBlank(fontname)) {
+                    baseFont = BaseFont.createFont(pathFont + "/" + fontname + ".ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED, true);
                 } else {
                     baseFont = BaseFont.createFont();
                 }
             } else {
-                baseFont = BaseFont.createFont(context.getRealPath("FONTS/" + font + ".ttf"), BaseFont.IDENTITY_H, BaseFont.EMBEDDED, true);
+                baseFont = BaseFont.createFont(context.getRealPath("FONTS/" + fontname + ".ttf"), BaseFont.IDENTITY_H, BaseFont.EMBEDDED, true);
             }
         } catch (DocumentException | IOException e) {
             e.printStackTrace();
@@ -637,8 +638,8 @@ public class PdfFreedom {
 
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             PdfWriter writer;
-            if (check.isNotBlank(path)) {
-                writer = PdfWriter.getInstance(document, new FileOutputStream(path));
+            if (check.isNotBlank(pathFile) && check.isNotBlank(filename)) {
+                writer = PdfWriter.getInstance(document, new FileOutputStream(pathFile + "/" + filename + ".pdf"));
             } else {
                 writer = PdfWriter.getInstance(document, baos);
             }
@@ -687,7 +688,7 @@ public class PdfFreedom {
             }
             document.close();
 
-            if (check.isBlank(path)) {
+            if (check.isBlank(pathFile)) {
                 response.setHeader("Expires", "0");
                 response.setHeader("Cache-Control", "must-revalidate, post-check=0, pre-check=0");
                 response.setHeader("Pragma", "public");
