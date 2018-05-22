@@ -28,8 +28,8 @@ public class PdfFreedom {
     private int fontSize = 12;
     private float padding = 6f;
     private String path = "";
-    private String data;
-    private String dataHeader = "";
+    private String table;
+    private String tableHeader = "";
     private SplitFreedom split = new SplitFreedom();
     private SubstringFreedom sub = new SubstringFreedom();
     private ParseNumberFreedom parse = new ParseNumberFreedom();
@@ -52,36 +52,36 @@ public class PdfFreedom {
     private int paddingLeftPageNumber = 0;
     private int paddingTopPageNumber = 25;
 
-    public PdfFreedom(ServletContext context, HttpServletResponse response, JspWriter out, String title, String data) {
+    public PdfFreedom(ServletContext context, HttpServletResponse response, JspWriter out, String title, String table) {
         this.context = context;
         this.response = response;
         this.out = out;
         this.title = title;
-        this.data = data;
+        this.table = table;
     }
 
-    public PdfFreedom(ServletContext context, HttpServletResponse response, JspWriter out, String title, String data, String dataHeader) {
+    public PdfFreedom(ServletContext context, HttpServletResponse response, JspWriter out, String title, String table, String tableHeader) {
         this.context = context;
         this.response = response;
         this.out = out;
         this.title = title;
-        this.data = data;
-        this.dataHeader = dataHeader;
+        this.table = table;
+        this.tableHeader = tableHeader;
     }
 
-    public PdfFreedom(String path, String font, String title, String data) {
+    public PdfFreedom(String path, String font, String title, String table) {
         this.path = path;
         this.pathFont = font;
         this.title = title;
-        this.data = data;
+        this.table = table;
     }
 
-    public PdfFreedom(String path, String font, String title, String data, String dataHeader) {
+    public PdfFreedom(String path, String font, String title, String table, String tableHeader) {
         this.path = path;
         this.pathFont = font;
         this.title = title;
-        this.data = data;
-        this.dataHeader = dataHeader;
+        this.table = table;
+        this.tableHeader = tableHeader;
     }
 
     public void setHorizontal() {
@@ -170,9 +170,9 @@ public class PdfFreedom {
     }
 
     private Float getPaddingTop(BaseFont baseFont) {
-        Phrase content = new Phrase("Blah blah blah", getFont(baseFont, fontSize));
-        Float fontSize = content.getFont().getSize();
-        Float capHeight = content.getFont().getBaseFont().getFontDescriptor(BaseFont.CAPHEIGHT, fontSize);
+        Phrase phrase = new Phrase("Blah blah blah", getFont(baseFont, this.fontSize));
+        Float fontSize = phrase.getFont().getSize();
+        Float capHeight = phrase.getFont().getBaseFont().getFontDescriptor(BaseFont.CAPHEIGHT, fontSize);
         return capHeight - fontSize + padding;
     }
 
@@ -643,8 +643,8 @@ public class PdfFreedom {
                 writer = PdfWriter.getInstance(document, baos);
             }
 
-            if (check.isNotBlank(dataHeader)) {
-                String[] spTableHeader = split.split(dataHeader, "<table>");
+            if (check.isNotBlank(tableHeader)) {
+                String[] spTableHeader = split.split(tableHeader, "<table>");
                 for (String valTableHeader : spTableHeader) {
                     if (check.isNotBlank(valTableHeader)) {
                         HeaderTable event = new HeaderTable();
@@ -670,7 +670,7 @@ public class PdfFreedom {
             document.open();
             document.addTitle(title);
 
-            String[] spTable = split.split(data, "<table>");
+            String[] spTable = split.split(table, "<table>");
             for (String valTable : spTable) {
                 if (check.isNotBlank(valTable)) {
                     if (check.isEquals(valTable, "<new-page>true</new-page></table>")) {
