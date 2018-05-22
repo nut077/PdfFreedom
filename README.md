@@ -3,7 +3,7 @@
 <br>
 [Tutorial.PdfFreedom.pdf](https://github.com/nut077/ExcelFreedom/files/1987501/Tutorial.PdfFreedom.pdf)
 
-...javascript
+...ruby
 <!-- https://mvnrepository.com/artifact/com.github.nut077/pdf-freedom -->
 <dependency>
     <groupId>com.github.nut077</groupId>
