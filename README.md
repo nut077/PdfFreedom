@@ -169,3 +169,17 @@
     ##### ผลลัพธ์ที่ได้คือ
     [![Capture.png](https://s22.postimg.cc/543rdhyg1/Capture.png)](https://postimg.cc/image/ixs42jr19/)
     <br><br>
+    กำหนดเส้นขอบให้แต่ละมุม<br>
+    ใช้ tag ``` <border-left>true or false</border-left> ``` สำหรับเส้นขอบซ้าย ค่าเริ่มต้นคือ false<br>
+    ใช้ tag ``` <border-right>true or false</border-right> ``` สำหรับเส้นขอบขวา ค่าเริ่มต้นคือ false<br>
+    ใช้ tag ``` <border-top>true or false</border-top> ``` สำหรับเส้นขอบบน ค่าเริ่มต้นคือ false<br>
+    ใช้ tag ``` <border-bottom>true or false</border-bottom> ``` สำหรับเส้นขอบล่าง ค่าเริ่มต้นคือ false<br>
+    ```java
+    table.append("<tr><td><border-left>true</border-left>border-left</td></tr>");
+    table.append("<tr><td><border-right>true</border-right>border-right</td></tr>");
+    table.append("<tr><td><border-top>true</border-top>border-top</td></tr>");
+    table.append("<tr><td><border-bottom>true</border-bottom>border-bottom</td></tr>");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s33.postimg.cc/kb05rcjvz/Capture.png)](https://postimg.cc/image/w045fbauj/)
+    <br><br>
