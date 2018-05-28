@@ -28,12 +28,25 @@
         header.append("<td>Header CC</td>");
       header.append("</tr>");
     header.append("</table>");
-    // ใช้งานแบบ offline
-    // parameter ตัวแรกคือที่อยู่ของไฟล์ที่จะสร้าง ตัวที่สองคือชื่อของไฟล์ pdf ตัวที่สามคือที่อยู่ของฟ้อนต์ ตัวที่สี่คือชื่อฟ้อนต์ ตัวที่ห้าคือชื่อของไฟล์ pdf, ตัวที่หกคือข้อมูลที่จะเขียนลงในไฟล์ pdf และตัวสุดท้ายคือ header ที่จะออกมาทุกแผ่นของไฟล์ จะมีหรือไม่มีก็ได้
+    
+    /* ใช้งานแบบ offline
+    parameter ตัวแรกคือที่อยู่ของไฟล์ที่จะสร้าง 
+    ตัวที่สองคือชื่อของไฟล์ pdf 
+    ตัวที่สามคือที่อยู่ของฟ้อนต์ ตัวที่สี่คือชื่อฟ้อนต์ 
+    ตัวที่ห้าคือชื่อของไฟล์ pdf
+    ตัวที่หกคือข้อมูลที่จะเขียนลงในไฟล์ pdf 
+    และตัวสุดท้ายคือ header ที่จะออกมาทุกแผ่นของไฟล์ จะมีหรือไม่มีก็ได้ */
+    
     PdfFreedom pdfFreedom = new PdfFreedom("D://", "pdf", "D://", "THSarabun", "example pdf", table.toString(), header.toString());
 
-    // ใช้งานแบบ servlets ไฟล์ jsp
-    // parameter ตัวแรกคือ application ตัวที่สองคือ response ตัวที่สามคือ out ตัวที่สี่คือชื่อของไฟล์ pdf ตัวที่ห้าคือข้อมูลที่จะเขียนลงในไฟล์ pdf และตัวสุดท้ายคือ header ที่จะออกมาทุกแผ่นของไฟล์ จะมีหรือไม่มีก็ได้
+    /* ใช้งานแบบ servlets ไฟล์ jsp
+    parameter ตัวแรกคือ application 
+    ตัวที่สองคือ response 
+    ตัวที่สามคือ out 
+    ตัวที่สี่คือชื่อของไฟล์ pdf 
+    ตัวที่ห้าคือข้อมูลที่จะเขียนลงในไฟล์ pdf 
+    และตัวสุดท้ายคือ header ที่จะออกมาทุกแผ่นของไฟล์ จะมีหรือไม่มีก็ได้
+    
     PdfFreedom pdfFreedom = new PdfFreedom(application, response, out, "example pdf", table.toString(), header.toString());
 
     pdfFreedom.write(); // สั่งให้เขียนไฟล์ 
