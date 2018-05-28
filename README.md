@@ -42,12 +42,13 @@
     /* ใช้งานแบบ servlets ไฟล์ jsp
     parameter ตัวแรกคือ application 
     ตัวที่สองคือ response 
-    ตัวที่สามคือ out 
-    ตัวที่สี่คือชื่อของไฟล์ pdf 
-    ตัวที่ห้าคือข้อมูลที่จะเขียนลงในไฟล์ pdf 
+    ตัวที่สามคือ out
+    ตัวที่สี่คือชื่อของฟอนต์
+    ตัวที่ห้าคือชื่อของไฟล์ pdf 
+    ตัวที่หกคือข้อมูลที่จะเขียนลงในไฟล์ pdf 
     และตัวสุดท้ายคือ header ที่จะออกมาทุกแผ่นของไฟล์ จะมีหรือไม่มีก็ได้ */
     
-    PdfFreedom pdfFreedom = new PdfFreedom(application, response, out, "example pdf", table.toString(), header.toString());
+    PdfFreedom pdfFreedom = new PdfFreedom(application, response, out, "tahoma", "example pdf", table.toString(), header.toString());
 
     pdfFreedom.write(); // สั่งให้เขียนไฟล์ 
     ```
@@ -115,7 +116,7 @@
     <br><br>
     
 * **การจัดรูปแบบ**<br>
-ใช้ tag ```<format>รูปแบบตาม list ข้างล่าง</format>``` ค่าเริ่มต้นคือ border-center-middle
+ใช้ tag ```<format>รูปแบบตาม list ข้างล่าง</format>``` ค่าเริ่มต้นคือ border-center
     - left
     - left-middle
     - left-top
