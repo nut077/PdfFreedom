@@ -45,7 +45,7 @@
     ตัวที่สามคือ out 
     ตัวที่สี่คือชื่อของไฟล์ pdf 
     ตัวที่ห้าคือข้อมูลที่จะเขียนลงในไฟล์ pdf 
-    และตัวสุดท้ายคือ header ที่จะออกมาทุกแผ่นของไฟล์ จะมีหรือไม่มีก็ได้
+    และตัวสุดท้ายคือ header ที่จะออกมาทุกแผ่นของไฟล์ จะมีหรือไม่มีก็ได้ */
     
     PdfFreedom pdfFreedom = new PdfFreedom(application, response, out, "example pdf", table.toString(), header.toString());
 
