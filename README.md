@@ -204,4 +204,14 @@
     ##### ผลลัพธ์ที่ได้คือ
     [![Capture.png](https://s22.postimg.cc/n37m24e69/Capture.png)](https://postimg.cc/image/nsqeehepp/)
     <br><br>
+    
+* **เปลี่ยนขนาด font**<br>
+ใช้ tag ```<font-size>ขนาด</font-size>``` ค่าเริ่มต้นคือ 14
+    ```java
+    table.append("<td><font-size>14</font-size>font default</td>");
+    table.append("<td><font-size>20</font-size>font size 20</td>");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s33.postimg.cc/45dgfkpu7/Capture.png)](https://postimg.cc/image/ocqw7vnbf/)
+    <br><br>
    
