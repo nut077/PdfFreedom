@@ -214,4 +214,34 @@
     ##### ผลลัพธ์ที่ได้คือ
     [![Capture.png](https://s33.postimg.cc/4i4ult5jz/Capture.png)](https://postimg.cc/image/cnmwjytsr/)
     <br><br>
+    
+* **ตัวอักษรตัวหนา**<br>
+ใช้ tag ```<b>true or false</b>``` ค่าเริ่มต้นคือ false
+    ```java
+    table.append("<td>font normal</td>");
+    table.append("<td><b>true</b>font bold</td>");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s33.postimg.cc/3sm29ra8v/Capture.png)](https://postimg.cc/image/je3dtpm6z/)
+    <br><br>
+    
+* **ตัวอักษรตัวเอียง**<br>
+ใช้ tag ```<i>true or false</i>``` ค่าเริ่มต้นคือ false
+    ```java
+    table.append("<td>font normal</td>");
+    table.append("<td><i>true</i>font italic</td>");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s33.postimg.cc/w5hk09tf3/Capture.png)](https://postimg.cc/image/k3m664k6j/)
+    <br><br>
+    
+* **ขีดเส้นใต้**<br>
+ใช้ tag ```<u>true or false</u>``` ค่าเริ่มต้นคือ false
+    ```java
+    table.append("<td>font normal</td>");
+    table.append("<td><u>true</u>font underline</td>");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s31.postimg.cc/h4myw66aj/Capture.png)](https://postimg.cc/image/9bwb470bb/)
+    <br><br>
    
