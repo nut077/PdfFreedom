@@ -20,15 +20,15 @@ public class PdfFreedom {
     private Rectangle page = null;
     private float marginLeftDocument = 36;
     private float marginRightDocument = 36;
-    private float marginTopDocument = 20;
+    private float marginTopDocument = 18;
     private float marginBottomDocument = 36;
     private String title;
-    private String pathFont = "";
-    private String fontname = "THSarabun";
-    private int fontSize = 12;
-    private float padding = 6f;
+    private String pathFont;
+    private String fontName;
+    private int fontSize = 14;
+    private float padding = 5f;
     private String pathFile = "";
-    private String filename;
+    private String fileName;
     private String table;
     private String tableHeader = "";
     private SplitFreedom split = new SplitFreedom();
@@ -46,44 +46,46 @@ public class PdfFreedom {
     private int pageNumberFontSize = 0;
     private String pageNumberAlign = "right";
     private boolean isSetPageNumberToBottom = false;
-    private String defaultFormat = "border-center-middle";
+    private String defaultFormat = "border-center";
     private LineDash solid = null;
     private LineDash dotted = null;
     private LineDash dashed = null;
     private int paddingLeftPageNumber = 0;
     private int paddingTopPageNumber = 25;
 
-    public PdfFreedom(ServletContext context, HttpServletResponse response, JspWriter out, String title, String table) {
-        this.context = context;
-        this.response = response;
-        this.out = out;
+    public PdfFreedom(String pathFile, String fileName, String pathFont, String fontName, String title, String table) {
+        this.pathFile = pathFile;
+        this.fileName = fileName;
+        this.pathFont = pathFont;
+        this.fontName = fontName;
         this.title = title;
         this.table = table;
     }
 
-    public PdfFreedom(ServletContext context, HttpServletResponse response, JspWriter out, String title, String table, String tableHeader) {
-        this.context = context;
-        this.response = response;
-        this.out = out;
+    public PdfFreedom(String pathFile, String fileName, String pathFont, String fontName, String title, String table, String tableHeader) {
+        this.pathFile = pathFile;
+        this.fileName = fileName;
+        this.pathFont = pathFont;
+        this.fontName = fontName;
         this.title = title;
         this.table = table;
         this.tableHeader = tableHeader;
     }
 
-    public PdfFreedom(String pathFile, String filename, String pathFont, String fontname, String title, String table) {
-        this.pathFile = pathFile;
-        this.filename = filename;
-        this.pathFont = pathFont;
-        this.fontname = fontname;
+    public PdfFreedom(ServletContext context, HttpServletResponse response, JspWriter out, String fontName, String title, String table) {
+        this.context = context;
+        this.response = response;
+        this.out = out;
+        this.fontName = fontName;
         this.title = title;
         this.table = table;
     }
 
-    public PdfFreedom(String pathFile, String filename, String pathFont, String fontname, String title, String table, String tableHeader) {
-        this.pathFile = pathFile;
-        this.filename = filename;
-        this.pathFont = pathFont;
-        this.fontname = fontname;
+    public PdfFreedom(ServletContext context, HttpServletResponse response, JspWriter out, String fontName, String title, String table, String tableHeader) {
+        this.context = context;
+        this.response = response;
+        this.out = out;
+        this.fontName = fontName;
         this.title = title;
         this.table = table;
         this.tableHeader = tableHeader;
@@ -127,10 +129,6 @@ public class PdfFreedom {
 
     public void setMarginBottomDocument(float marginBottomDocument) {
         this.marginBottomDocument = marginBottomDocument;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public void setPadding(float padding) {
@@ -185,13 +183,13 @@ public class PdfFreedom {
         BaseFont baseFont = null;
         try {
             if (check.isNotBlank(pathFile)) {
-                if (check.isNotBlank(pathFont) && check.isNotBlank(fontname)) {
-                    baseFont = BaseFont.createFont(pathFont + "/" + fontname + ".ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED, true);
+                if (check.isNotBlank(pathFont) && check.isNotBlank(fontName)) {
+                    baseFont = BaseFont.createFont(pathFont + "/" + fontName + ".ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED, true);
                 } else {
                     baseFont = BaseFont.createFont();
                 }
             } else {
-                baseFont = BaseFont.createFont(context.getRealPath("FONTS/" + fontname + ".ttf"), BaseFont.IDENTITY_H, BaseFont.EMBEDDED, true);
+                baseFont = BaseFont.createFont(context.getRealPath("FONTS/" + fontName + ".ttf"), BaseFont.IDENTITY_H, BaseFont.EMBEDDED, true);
             }
         } catch (DocumentException | IOException e) {
             e.printStackTrace();
@@ -384,7 +382,7 @@ public class PdfFreedom {
 
         String border = "true";
         String align = "center";
-        String valign = "middle";
+        String valign = "bottom";
 
         String format = getValueDataString(valTd, "<format>", "</format>", defaultFormat);
         String[] spFormat = split.split(format, "-");
@@ -445,7 +443,9 @@ public class PdfFreedom {
             String tmp = sub.substring(data, data.lastIndexOf("</") + 2, data.length());
             data = sub.substring(tmp, tmp.indexOf(">") + 1, tmp.length());
         }
+
         Font f = getFont(baseFont, fs);
+
         if (check.isEquals(bold, "true")) {
             f.setStyle(Font.BOLD);
         }
@@ -629,14 +629,18 @@ public class PdfFreedom {
             baseFont = getBaseFont();
             paddingTop = getPaddingTop(baseFont);
 
+            if (check.isNotBlank(tableHeader) && check.isEquals(marginTopDocument, 18)) {
+                marginTopDocument = 38;
+            }
+
             Document document = new Document(getPage(),
                 marginLeftDocument, marginRightDocument,
                 marginTopDocument, marginBottomDocument);
 
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             PdfWriter writer;
-            if (check.isNotBlank(pathFile) && check.isNotBlank(filename)) {
-                writer = PdfWriter.getInstance(document, new FileOutputStream(pathFile + "/" + filename + ".pdf"));
+            if (check.isNotBlank(pathFile) && check.isNotBlank(fileName)) {
+                writer = PdfWriter.getInstance(document, new FileOutputStream(pathFile + "/" + fileName + ".pdf"));
             } else {
                 writer = PdfWriter.getInstance(document, baos);
             }
@@ -647,7 +651,7 @@ public class PdfFreedom {
                     if (check.isNotBlank(valTableHeader)) {
                         HeaderTable event = new HeaderTable();
                         event.setDefaultHeight(page.getHeight());
-                        event.setMarginTop(getValueDataFloat(valTableHeader, "<table-margin-top>", "</table-margin-top>", 40));
+                        event.setMarginTop(getValueDataFloat(valTableHeader, "<table-margin-top>", "</table-margin-top>", 20));
                         event.setBaseFont(baseFont);
                         event.setFontSize((float) check.setValueNotZero(pageNumberFontSize, fontSize - 1));
                         event.setPageNumberAlignment(mapFormatHorizontal.getInt(pageNumberAlign));
