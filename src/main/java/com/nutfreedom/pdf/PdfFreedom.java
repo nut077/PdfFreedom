@@ -407,26 +407,23 @@ public class PdfFreedom {
         int colspan = getValueDataInt(valTd, "<colspan>", "</colspan>", 0);
         int rowspan = getValueDataInt(valTd, "<rowspan>", "</rowspan>", 0);
         int height = getValueDataInt(valTd, "<height>", "</height>", 0);
-        int fs = getValueDataInt(valTd, "<size>", "</size>", fontSize);
-        if (check.isEquals(fs, fontSize)) {
-            fs = getValueDataInt(valTd, "<font-size>", "</font-size>", fontSize);
-        }
+        int fs = getValueDataInt(valTd, "<font-size>", "</font-size>", fontSize);
         String bold = getValueDataString(valTd, "<b>", "</b>", "false");
         String italic = getValueDataString(valTd, "<i>", "</i>", "false");
         String underline = getValueDataString(valTd, "<u>", "</u>", "false");
-        String fontColor = getValueDataString(valTd, "<color>", "</color>", "");
-        String fontColorNew = getValueDataString(valTd, "<color-new>", "</color-new>", "");
-        String background = getValueDataString(valTd, "<background>", "</background>", "");
-        String backgroundNew = getValueDataString(valTd, "<background-new>", "</background-new>", "");
+        String fontColor = getValueDataString(valTd, "<font-color>", "</font-color>", "");
+        String fontColorNew = getValueDataString(valTd, "<font-color-new>", "</font-color-new>", "");
+        String backgroundColor = getValueDataString(valTd, "<background-color>", "</background-color>", "");
+        String backgroundColorNew = getValueDataString(valTd, "<background-color-new>", "</background-color-new>", "");
         float padding = getValueDataFloat(valTd, "<padding>", "</padding>", 7777);
         float paddingLeft = getValueDataFloat(valTd, "<padding-left>", "</padding-left>", 7777);
         float paddingRight = getValueDataFloat(valTd, "<padding-right>", "</padding-right>", 7777);
         float paddingTop = getValueDataFloat(valTd, "<padding-top>", "</padding-top>", 7777);
         float paddingBottom = getValueDataFloat(valTd, "<padding-bottom>", "</padding-bottom>", 7777);
-        String image = getValueDataString(valTd, "<image>", "</image>", "");
-        float imageWidth = getValueDataFloat(valTd, "<image-width>", "</image-width>", 20);
-        float imageWidthFix = getValueDataFloat(valTd, "<image-width-fix>", "</image-width-fix>", 0);
-        float imageHeightFix = getValueDataFloat(valTd, "<image-height-fix>", "</image-height-fix>", 0);
+        String image = getValueDataString(valTd, "<img>", "</img>", "");
+        float imageWidthPercent = getValueDataFloat(valTd, "<img-width>", "</img-width>", 20);
+        float imageWidth = getValueDataFloat(valTd, "<img-width-percent>", "</img-width-percent>", 0);
+        float imageHeight = getValueDataFloat(valTd, "<img-height>", "</img-height>", 0);
         String doubleLine = getValueDataString(valTd, "<double-line>", "</double-line>", "false");
 
         String borderLeft = getValueDataString(valTd, "<border-left>", "</border-left>", "false");
@@ -476,9 +473,9 @@ public class PdfFreedom {
                 e.printStackTrace();
             }
             if (img != null) {
-                img.scalePercent(imageWidth);
-                if (check.isMoreThanZero(imageWidthFix) && check.isMoreThanZero(imageHeightFix)) {
-                    img.scaleAbsolute(imageWidthFix, imageHeightFix);
+                img.scalePercent(imageWidthPercent);
+                if (check.isMoreThanZero(imageWidth) && check.isMoreThanZero(imageHeight)) {
+                    img.scaleAbsolute(imageWidth, imageHeight);
                 }
                 cell = new PdfPCell(img);
             }
@@ -542,13 +539,13 @@ public class PdfFreedom {
         if (check.isMoreThanZero(rowspan)) {
             cell.setRowspan(rowspan);
         }
-        if (check.isNotBlank(background)) {
-            if (this.mapFormatColor.containsKey(background)) {
-                cell.setBackgroundColor(this.mapFormatColor.get(background));
+        if (check.isNotBlank(backgroundColor)) {
+            if (this.mapFormatColor.containsKey(backgroundColor)) {
+                cell.setBackgroundColor(this.mapFormatColor.get(backgroundColor));
             }
         }
-        if (check.isNotBlank(backgroundNew)) {
-            cell.setBackgroundColor(getNewColor(backgroundNew));
+        if (check.isNotBlank(backgroundColorNew)) {
+            cell.setBackgroundColor(getNewColor(backgroundColorNew));
         }
         if (check.isMoreThanZero(height)) {
             cell.setMinimumHeight(height);
