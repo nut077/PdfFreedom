@@ -134,18 +134,36 @@
     - border-right-middle
     - border-right-top
     ```java
+    table.append("<tr>");
     table.append("<td><format>left</format>left</td>");
-    table.append("<td><format>center</format>center</td>");
-    table.append("<td><format>right</format>right</td>");
     table.append("<td><format>left-middle</format>left-middle</td>");
-    table.append("<td><format>center-middle</format>center-middle</td>");
-    table.append("<td><format>right-middle</format>right-middle</td>");
     table.append("<td><format>left-top</format>left-top</td>");
+    table.append("</tr>");
+    table.append("<tr>");
+    table.append("<td><format>center</format>center</td>");
+    table.append("<td><format>center-middle</format>center-middle</td>");
     table.append("<td><format>center-top</format>center-top</td>");
+    table.append("</tr>");
+    table.append("<tr>");
+    table.append("<td><format>right</format>right</td>");
+    table.append("<td><format>right-middle</format>right-middle</td>");
     table.append("<td><format>right-top</format>right-top</td>");
-    table.append("<td><format>orientation</format>orientation</td>");
-    table.append("<td><format>orientation-middle</format>orientation-middle</td>");
-    table.append("<td><format>orientation-top</format>orientation-top</td>");
+    table.append("</tr>");
+    table.append("<tr>");
+    table.append("<td><format>border-left</format>border-left</td>");
+    table.append("<td><format>border-left-middle</format>border-left-middle</td>");
+    table.append("<td><format>border-left-top</format>border-left-top</td>");
+    table.append("</tr>");
+    table.append("<tr>");
+    table.append("<td><format>border-center</format>border-center</td>");
+    table.append("<td><format>border-center-middle</format>border-center-middle</td>");
+    table.append("<td><format>border-center-top</format>border-center-top</td>");
+    table.append("</tr>");
+    table.append("<tr>");
+    table.append("<td><format>border-right</format>border-right</td>");
+    table.append("<td><format>border-right-middle</format>border-right-middle</td>");
+    table.append("<td><format>border-right-top</format>border-right-top</td>");
+    table.append("</tr>");
     ```
     ##### ผลลัพธ์ที่ได้คือ
     [![Capture.png](https://s22.postimg.cc/543rdhyg1/Capture.png)](https://postimg.cc/image/ixs42jr19/)
