@@ -71,5 +71,5 @@
     table.append("</tr>");
     ```
     ##### ผลลัพธ์ที่ได้คือ
-    [![Capture.png](https://s22.postimg.cc/8mb5vrcep/Capture.png)](https://postimg.cc/image/jlwd7d2tp/)
+    [![Capture.png](https://s22.postimg.cc/4pxtzq1ox/Capture.png)](https://postimg.cc/image/lqgq8eeq5/)
     <br><br>
