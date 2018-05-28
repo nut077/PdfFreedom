@@ -88,3 +88,65 @@
     ##### ผลลัพธ์ที่ได้คือ
     [![Capture.png](https://s22.postimg.cc/olttfn8k1/Capture.png)](https://postimg.cc/image/gt35no2kt/)
     <br><br>
+    
+* **ขยายขนาดความกว้างของคอลัมน์**<br>
+ใช้ tag ```<width>ตัวเลขที่ต้องการ</width>```
+    ```java
+    table.append("<td><width>10</width>width 10</td>");
+    table.append("<td><width>20</width>width 20</td>");
+    table.append("<td><width>30</width>width 30</td>");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s22.postimg.cc/sjh34yvch/Capture.png)](https://postimg.cc/image/dnijxdjxp/)
+    <br><br>
+    
+ ใช้ tag ```<height>ตัวเลขที่ต้องการ</height>```
+    ```java
+    table.append("<tr>");
+        table.append("<td><height>500</height>height 500</td>");
+    table.append("</tr>");
+    table.append("<tr>");
+        table.append("<td><height>600</height>height 600</td>");
+    table.append("</tr>");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s22.postimg.cc/6yc0hge29/Capture.png)](https://postimg.cc/image/dc13kpiy5/)
+    <br><br>
+    
+* **การจัดรูปแบบ**<br>
+ใช้ tag ```<format>รูปแบบตาม list ข้างล่าง</format>``` ค่าเริ่มต้นคือ border-center-middle
+    - left
+    - left-middle
+    - left-top
+    - center
+    - center-middle
+    - center-top
+    - right
+    - right -middle
+    - right -top
+    - border-left
+    - border-left-middle
+    - border-left-top
+    - border-center
+    - border-center-middle
+    - border-center-top
+    - border-right
+    - border-right-middle
+    - border-right-top
+    ```java
+    table.append("<td><format>left</format>left</td>");
+    table.append("<td><format>center</format>center</td>");
+    table.append("<td><format>right</format>right</td>");
+    table.append("<td><format>left-middle</format>left-middle</td>");
+    table.append("<td><format>center-middle</format>center-middle</td>");
+    table.append("<td><format>right-middle</format>right-middle</td>");
+    table.append("<td><format>left-top</format>left-top</td>");
+    table.append("<td><format>center-top</format>center-top</td>");
+    table.append("<td><format>right-top</format>right-top</td>");
+    table.append("<td><format>orientation</format>orientation</td>");
+    table.append("<td><format>orientation-middle</format>orientation-middle</td>");
+    table.append("<td><format>orientation-top</format>orientation-top</td>");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s22.postimg.cc/543rdhyg1/Capture.png)](https://postimg.cc/image/ixs42jr19/)
+    <br><br>
