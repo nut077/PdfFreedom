@@ -183,3 +183,24 @@
     ##### ผลลัพธ์ที่ได้คือ
     [![Capture.png](https://s33.postimg.cc/kb05rcjvz/Capture.png)](https://postimg.cc/image/w045fbauj/)
     <br><br>
+    ถ้าต้องการให้ขอบเป็นเส้นจุดให้เพิ่ม -dotted ต่อท้าย
+    ```java
+    table.append("<tr><td><border-left-dotted>true</border-left-dotted>border-left-dotted</td></tr>");
+    table.append("<tr><td><border-right-dotted>true</border-right-dotted>border-right-dotted</td></tr>");
+    table.append("<tr><td><border-top-dotted>true</border-top-dotted>border-top-dotted</td></tr>");
+    table.append("<tr><td><border-bottom-dotted>true</border-bottom-dotted>border-bottom-dotted</td></tr>");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s33.postimg.cc/42jxhxnxb/Capture.png)](https://postimg.cc/image/yjzs9hba3/)
+    <br><br>
+    ถ้าต้องการให้ขอบเป็นเส้นปะให้เพิ่ม -dashed ต่อท้าย
+    ```java
+    table.append("<tr><td><border-left-dashed>true</border-left-dashed>border-left-dashed</td></tr>");
+    table.append("<tr><td><border-right-dashed>true</border-right-dashed>border-right-dashed</td></tr>");
+    table.append("<tr><td><border-top-dashed>true</border-top-dashed>border-top-dashed</td></tr>");
+    table.append("<tr><td><border-bottom-dashed>true</border-bottom-dashed>border-bottom-dashed</td></tr>");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s22.postimg.cc/n37m24e69/Capture.png)](https://postimg.cc/image/nsqeehepp/)
+    <br><br>
+   
