@@ -54,3 +54,22 @@
     ##### ผลลัพธ์ที่ได้คือ
     [![Capture.png](https://s22.postimg.cc/y19osylgx/Capture.png)](https://postimg.cc/image/qlaf75xrh/)
     <br><br>
+    
+* **ผสานเซลล์ แนวนอน**<br>
+ใช้ tag ```<colspan>ตัวเลขที่ต้องการ</colspan>```
+    ```java
+    table.append("<tr>");
+    table.append("<td><colspan>2</colspan>colspan 2</td>");
+    table.append("<td><colspan>3</colspan>colspan 3</td>");
+    table.append("</tr>");
+    table.append("<tr>");
+    table.append("<td>1</td>");
+    table.append("<td>2</td>");
+    table.append("<td>3</td>");
+    table.append("<td>4</td>");
+    table.append("<td>5</td>");
+    table.append("</tr>");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s22.postimg.cc/4pxtzq1ox/Capture.png)](https://postimg.cc/image/lqgq8eeq5/)
+    <br><br>
