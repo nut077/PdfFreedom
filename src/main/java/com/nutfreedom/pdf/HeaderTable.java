@@ -13,8 +13,8 @@ public class HeaderTable extends PdfPageEventHelper {
     private int pageNumberAlignment = Element.ALIGN_RIGHT;
     private boolean isShowPageNumber = false;
     private boolean isSetPageNumberToBottom = false;
-    private String textFirst = "tmpTextFirst";
-    private String textOf = "tmpTextOf";
+    private String textFirst = "";
+    private String textOf = "";
     private CheckFreedom check;
     private PdfPTable table;
     private int paddingLeft = 0;
@@ -142,7 +142,7 @@ public class HeaderTable extends PdfPageEventHelper {
             totalPages.beginText();
             totalPages.setFontAndSize(baseFont, fontSize);
             totalPages.setTextMatrix(0, 0);
-            totalPages.showText(String.valueOf(writer.getPageNumber() - 1));
+            totalPages.showText(String.valueOf(writer.getPageNumber()));
             totalPages.endText();
         }
     }

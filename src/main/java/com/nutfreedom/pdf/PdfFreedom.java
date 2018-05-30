@@ -41,8 +41,8 @@ public class PdfFreedom {
     private BaseFont baseFont;
     private float paddingTop;
     private boolean isShowPageNumber = false;
-    private String textFirst = "";
-    private String textOf = "";
+    private String textFirst = "tmpTextFirst";
+    private String textOf = "tmpTextOf";
     private int pageNumberFontSize = 0;
     private String pageNumberAlign = "right";
     private boolean isSetPageNumberToBottom = false;
@@ -419,8 +419,8 @@ public class PdfFreedom {
         float paddingTop = getValueDataFloat(valTd, "<padding-top>", "</padding-top>", 7777);
         float paddingBottom = getValueDataFloat(valTd, "<padding-bottom>", "</padding-bottom>", 7777);
         String image = getValueDataString(valTd, "<img>", "</img>", "");
-        float imageWidthPercent = getValueDataFloat(valTd, "<img-width>", "</img-width>", 20);
-        float imageWidth = getValueDataFloat(valTd, "<img-width-percent>", "</img-width-percent>", 0);
+        float imageWidthPercent = getValueDataFloat(valTd, "<img-width-percent>", "</img-width-percent>", 100);
+        float imageWidth = getValueDataFloat(valTd, "<img-width>", "</img-width>", 0);
         float imageHeight = getValueDataFloat(valTd, "<img-height>", "</img-height>", 0);
         String doubleLine = getValueDataString(valTd, "<double-line>", "</double-line>", "false");
 
@@ -447,13 +447,13 @@ public class PdfFreedom {
         Font f = getFont(baseFont, fs);
 
         if (check.isEquals(bold, "true")) {
-            f.setStyle(Font.BOLD);
+            f.setStyle("bold");
         }
         if (check.isEquals(italic, "true")) {
-            f.setStyle(Font.ITALIC);
+            f.setStyle("italic");
         }
         if (check.isEquals(underline, "true")) {
-            f.setStyle(Font.UNDERLINE);
+            f.setStyle("underline");
         }
         if (check.isNotBlank(fontColor)) {
             if (mapFormatColor.containsKey(fontColor)) {
@@ -630,7 +630,7 @@ public class PdfFreedom {
             paddingTop = getPaddingTop(baseFont);
 
             if (check.isNotBlank(tableHeader) && check.isEquals(marginTopDocument, 18)) {
-                marginTopDocument = 38;
+                marginTopDocument = 57;
             }
 
             Document document = new Document(getPage(),
@@ -651,7 +651,7 @@ public class PdfFreedom {
                     if (check.isNotBlank(valTableHeader)) {
                         HeaderTable event = new HeaderTable();
                         event.setDefaultHeight(page.getHeight());
-                        event.setMarginTop(getValueDataFloat(valTableHeader, "<table-margin-top>", "</table-margin-top>", 20));
+                        event.setMarginTop(getValueDataFloat(valTableHeader, "<table-margin-top>", "</table-margin-top>", 40));
                         event.setBaseFont(baseFont);
                         event.setFontSize((float) check.setValueNotZero(pageNumberFontSize, fontSize - 1));
                         event.setPageNumberAlignment(mapFormatHorizontal.getInt(pageNumberAlign));
