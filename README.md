@@ -320,5 +320,35 @@
     [![Capture.png](https://s33.postimg.cc/l0ck8644f/Capture.png)](https://postimg.cc/image/yu0wx7wpn/)
     <br><br>
     
+* **เพิ่มรูปภาพ**<br>
+ใช้ tag ```<img>ที่อยู่ของรูปภาพ</img>```
+    ```java
+    table.append("<td><format>center</format><img>D://image.jpg</img></td>");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s22.postimg.cc/rsvr8vw8x/Capture.png)](https://postimg.cc/image/l2f9zg931/)
+    <br><br>
     
+    
+
+    ปรับขนาดรูปภาพแบบเปอร์เซ็นต์<br>
+    ใช้ tag ```<img-width-percent>1-100</img-width-percent>``` ค่าเริ่มต้นคือ 100<br>
+    ตัวอย่างปรับเป็น 50 เปอร์เซ็นต์
+    ```java
+    table.append("<td><format>center</format><img>D://image.jpg</img><img-width-percent>50</img-width-percent></td>");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s22.postimg.cc/k1f1a6f75/Capture.png)](https://postimg.cc/image/bvwzc0qy5/)
+    <br><br>
+    
+    ปรับขนาดความกว้างความสูง<br>
+    ใช้ tag ```<img-width>ขนาดความกว้าง</img-width>```<br>
+    ใช้ tag ```<img-height>ขนาดความสูง</img-height>```<br>
+    ตัวอย่างเช่น กำหนดความกว้างเท่ากับ 250 และความสูงเท่ากับ 150<br>
+    ```java
+    table.append("<td><format>center</format><img>D://image.jpg</img><img-width>250</img-width><img-height>150</img-height></td>");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s33.postimg.cc/vr06u3x9b/Capture.png)](https://postimg.cc/image/ve8snxezf/)
+    <br><br>
    
