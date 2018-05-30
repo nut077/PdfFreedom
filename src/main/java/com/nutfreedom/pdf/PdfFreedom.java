@@ -14,7 +14,7 @@ import java.io.OutputStream;
 import java.util.HashMap;
 
 public class PdfFreedom {
-    private ServletContext context;
+    private ServletContext application;
     private HttpServletResponse response;
     private JspWriter out;
     private Rectangle page = null;
@@ -72,8 +72,8 @@ public class PdfFreedom {
         this.tableHeader = tableHeader;
     }
 
-    public PdfFreedom(ServletContext context, HttpServletResponse response, JspWriter out, String fontName, String title, String table) {
-        this.context = context;
+    public PdfFreedom(ServletContext application, HttpServletResponse response, JspWriter out, String fontName, String title, String table) {
+        this.application = application;
         this.response = response;
         this.out = out;
         this.fontName = fontName;
@@ -81,8 +81,8 @@ public class PdfFreedom {
         this.table = table;
     }
 
-    public PdfFreedom(ServletContext context, HttpServletResponse response, JspWriter out, String fontName, String title, String table, String tableHeader) {
-        this.context = context;
+    public PdfFreedom(ServletContext application, HttpServletResponse response, JspWriter out, String fontName, String title, String table, String tableHeader) {
+        this.application = application;
         this.response = response;
         this.out = out;
         this.fontName = fontName;
@@ -189,7 +189,7 @@ public class PdfFreedom {
                     baseFont = BaseFont.createFont();
                 }
             } else {
-                baseFont = BaseFont.createFont(context.getRealPath("FONTS/" + fontName + ".ttf"), BaseFont.IDENTITY_H, BaseFont.EMBEDDED, true);
+                baseFont = BaseFont.createFont(application.getRealPath("FONTS/" + fontName + ".ttf"), BaseFont.IDENTITY_H, BaseFont.EMBEDDED, true);
             }
         } catch (DocumentException | IOException e) {
             e.printStackTrace();
