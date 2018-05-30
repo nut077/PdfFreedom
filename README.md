@@ -304,11 +304,11 @@
     <br><br>
     เปลี่ยนสีตัวอักษร
     ```java
-    table.append("<td><font-color>orange</font-color>orange</td>");
-    table.append("<td><font-color>green</font-color>green</td>");
+    table.append("<td><font-color>red</font-color>red</td>");
+    table.append("<td><font-color>blue</font-color>blue</td>");
     ```
     ##### ผลลัพธ์ที่ได้คือ
-    [![Capture.png](https://s33.postimg.cc/tg24pshb3/Capture.png)](https://postimg.cc/image/uv3peiie3/)
+    [![Capture.png](https://s33.postimg.cc/6v6r63fkv/Capture.png)](https://postimg.cc/image/qpsss7usb/)
     <br><br>
     เปลี่ยนสีตัวอักษรแบบกำหนดสีเอง<br>
     ใช้ tag ``` <font-color-new>กำหนดเลขสี red,green,blue</font-color-new> ```
