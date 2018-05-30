@@ -56,6 +56,32 @@
     [![Capture.png](https://s22.postimg.cc/y19osylgx/Capture.png)](https://postimg.cc/image/qlaf75xrh/)
     <br><br>
     
+* **กำหนดตำแหน่งของ header**<br>
+ใช้ tag ```<table-margin-top>ความสูงที่ห่างจากระยะขอบกระดาษ</table-margintop> โดยวางไว้ต่อจาก tag <table>``` ค่าเริ่มต้นคือ 20
+    ```java
+    StringBuilder table = new StringBuilder();
+    table.append("<table>");
+      table.append("<tr>");
+        table.append("<td>A</td>");
+        table.append("<td>B</td>");
+        table.append("<td>C</td>");
+      table.append("</tr>");
+    table.append("</table>");
+    
+    StringBuilder header = new StringBuilder();
+    header.append("<table>");
+      header.append("<table-margin-top>10</table-margintop>");
+      header.append("<tr>");
+        header.append("<td>Header A</td>");
+        header.append("<td>Header B</td>");
+        header.append("<td>Header CC</td>");
+      header.append("</tr>");
+    header.append("</table>");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s22.postimg.cc/6bki1hmz5/Capture.png)](https://postimg.cc/image/nc3ea600d/)
+    <br><br>
+    
 * **กำหนดความกว้างของตาราง**<br>
 ใช้ tag ```<table-width>ขนาด 1-100</table-width> โดยวางไว้ต่อจาก tag <table>``` ค่าเริ่มต้นคือ 100
     ```java
@@ -225,6 +251,24 @@
     [![Capture.png](https://s22.postimg.cc/n37m24e69/Capture.png)](https://postimg.cc/image/nsqeehepp/)
     <br><br>
     
+* **กำหนดระยะห่างระหว่างข้อความกับขอบของคอลัมน์**<br>
+ใช้ tag ตามรูปแบบด้านล่าง โดยระยะห่างอิงกับการจัดรูปแบบด้วย ตัวอย่างใช้รูปแบบ border-center ขนาดเริ่มต้นคือ 5<br>
+    - ```<padding>ขนาด</padding>``` // ระยะห่างทั้งหมด บน ขวา ล่าง ซ้าย
+    - ```<padding-left>ขนาด</padding-left>``` // ระยะห่างระหว่างข้อความกับด้านซ้ายของคอลัมน์
+    - ```<padding-right>ขนาด</padding-right>``` // ระยะห่างระหว่างข้อความกับด้านขวาของคอลัมน์
+    - ```<padding-top>ขนาด</padding-top>``` // ระยะห่างระหว่างข้อความกับด้านบนของคอลัมน์
+    - ```<padding-bottom>ขนาด</padding-bottom>``` // ระยะห่างระหว่างข้อความกับด้านล่างของคอลัมน์
+    ```java
+    table.append("<tr><td><padding>50</padding>padding 50</td></tr>");
+    table.append("<tr><td><padding-left>100</padding-left>padding left 100</td></tr>");
+    table.append("<tr><td><padding-right>100</padding-right>padding right 100</td></tr>");
+    table.append("<tr><td><padding-top>10</padding-top>padding top 10</td></tr>");
+    table.append("<tr><td><padding-bottom>2</padding-bottom>padding bottom 2</td></tr>");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s22.postimg.cc/nf1221cwh/Capture.png)](https://postimg.cc/image/5c7zath1p/)
+    <br><br>
+    
 * **เปลี่ยนขนาด font**<br>
 ใช้ tag ```<font-size>ขนาด</font-size>``` ค่าเริ่มต้นคือ 14
     ```java
@@ -263,6 +307,16 @@
     ```
     ##### ผลลัพธ์ที่ได้คือ
     [![Capture.png](https://s33.postimg.cc/p1p20bze7/Capture.png)](https://postimg.cc/image/kskby5w4r/)
+    <br><br>
+    
+* **ขีดเส้นใต้สองเส้น**<br>
+ใช้ tag ```<double-line>true or false</double-line>``` ค่าเริ่มต้นคือ false
+    ```java
+    table.append("<td>font normal</td>");
+    table.append("<td><double-line>true</double-line>font 2 underline</td>");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s33.postimg.cc/9w1ubfelr/Capture.png)](https://postimg.cc/image/t153l6t9n/)
     <br><br>
     
 * **สี**<br>
@@ -329,8 +383,6 @@
     [![Capture.png](https://s22.postimg.cc/rsvr8vw8x/Capture.png)](https://postimg.cc/image/l2f9zg931/)
     <br><br>
     
-    
-
     ปรับขนาดรูปภาพแบบเปอร์เซ็นต์<br>
     ใช้ tag ```<img-width-percent>1-100</img-width-percent>``` ค่าเริ่มต้นคือ 100<br>
     ตัวอย่างปรับเป็น 50 เปอร์เซ็นต์
@@ -351,4 +403,21 @@
     ##### ผลลัพธ์ที่ได้คือ
     [![Capture.png](https://s33.postimg.cc/vr06u3x9b/Capture.png)](https://postimg.cc/image/ve8snxezf/)
     <br><br>
-   
+    
+* **กำหนดค่าเริ่ม**<br>
+    ```java
+    PdfFreedom pdfFreedom = new PdfFreedom("D://", "pdf", "D://", "THSarabun", "example pdf", table.toString(), header.toString());
+    // เรียกใช้ก่อน method write()
+    pdfFreedom.write();
+    ```
+    - กำหนดกระดาษเป็นแนวนอน setHorizontal(); ตัวอย่าง ``` pdfFreedom.setHorizontal(); ```<br>
+    - กำหนดระยะห่างระหว่างขอบกระดาษ setMarginDocument(36, 36, 36, 36); บน,ขวา,ล่าง,ซ้าย<br>ตัวอย่าง ``` pdfFreedom.setMarginDocument(36, 36, 36, 36); ```<br>
+    หรือจะกำหนดแยก<br>
+    ```java
+    pdfFreedom.setMarginLeftDocument(36);
+    pdfFreedom.setMarginRightDocument(36);
+    pdfFreedom.setMarginTopDocument(36);
+    pdfFreedom.setMarginBottomDocument(36);
+    ```
+    <br>
+    - กำหนดกระดาษเป็นแนวนอน setHorizontal(); ตัวอย่าง ``` pdfFreedom.setHorizontal(); ```<br>
