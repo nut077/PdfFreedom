@@ -57,7 +57,7 @@
     <br><br>
     
 * **กำหนดตำแหน่งของ header**<br>
-ใช้ tag ```<table-margin-top>ความสูงที่ห่างจากระยะขอบกระดาษ</table-margintop> โดยวางไว้ต่อจาก tag <table>``` ค่าเริ่มต้นคือ 20
+ใช้ tag ```<table-margin-top>ความสูงที่ห่างจากระยะขอบกระดาษ</table-margintop> โดยวางไว้ต่อจาก tag <table>``` ค่าเริ่มต้นคือ 40
     ```java
     StringBuilder table = new StringBuilder();
     table.append("<table>");
@@ -418,6 +418,38 @@
     pdfFreedom.setMarginRightDocument(36);
     pdfFreedom.setMarginTopDocument(36);
     pdfFreedom.setMarginBottomDocument(36);
-    ```<br>
+    ```
     - กำหนดระยะห่างระหว่างข้อความกับขอบของคอลัมน์ setPadding(ขนาด); ตัวอย่าง  ``` pdfFreedom.setPadding(10); ``` <br>
     - กำหนดขนาดตัวอักษร setFontSize(ขนาด); ตัวอย่าง ``` pdfFreedom.setFontSize(20); ```<br>
+    - กำหนดการจัดรูปแบบ setDefaultFormat(รูปแบบ); ตัวอย่าง ``` pdfFreedom.setDefaultFormat("left"); ```<br>
+    - กำหนดให้แสดงจำนวนหน้า setPageNumberShow(); ต้องใส่ข้อมูลที่ header ด้วย ตัวเลขถึงจะแสดง<br>ถ้าไม่มีข้อมูลที่ header สามารถใส่เป็นค่าเปล่าๆได้ เช่น<br>
+    ```java
+    StringBuilder header = new StringBuilder();
+    header.append("<table>");
+    header.append("<tr>");
+    header.append("<td><format>left</format></td>");
+    header.append("</tr>");
+    header.append("</table>");
+    ```
+    ตัวอย่าง ``` pdfFreedom.setPageNumberShow(); ```<br>
+    ```java
+    StringBuilder table = new StringBuilder();
+    table.append("<table>");
+        table.append("<tr>");
+            table.append("<td>show page number</td>");
+        table.append("</tr>");
+    table.append("</table>");
+    
+    StringBuilder header = new StringBuilder();
+    header.append("<table>");
+        header.append("<tr>");
+            header.append("<td><format>left</format></td>");
+        header.append("</tr>");
+    header.append("</table>");
+    
+    PdfFreedom pdfFreedom = new PdfFreedom("D://", "pdf", "D://", "THSarabun", "example pdf", table.toString(), header.toString());
+    pdfFreedom.setPageNumberShow();
+    pdfFreedom.write();
+    ```
+    [![Capture.png](https://s22.postimg.cc/hbso9qjfl/Capture.png)](https://postimg.cc/image/kvelzjm59/)
+    
