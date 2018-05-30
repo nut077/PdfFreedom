@@ -281,6 +281,7 @@
     - magenta
     - cyan
     - blue
+    <br>
     [![Capture.png](https://s33.postimg.cc/z2tw9fuf3/Capture.png)](https://postimg.cc/image/4y5fo2pbv/)
     <br><br>
    
