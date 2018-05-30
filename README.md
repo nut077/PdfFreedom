@@ -418,7 +418,6 @@
     pdfFreedom.setMarginRightDocument(36);
     pdfFreedom.setMarginTopDocument(36);
     pdfFreedom.setMarginBottomDocument(36);
-    ```
-    <br>
+    ```<br>
     - กำหนดระยะห่างระหว่างข้อความกับขอบของคอลัมน์ setPadding(ขนาด); ตัวอย่าง  ``` pdfFreedom.setPadding(10); ``` <br>
     - กำหนดขนาดตัวอักษร setFontSize(ขนาด); ตัวอย่าง ``` pdfFreedom.setFontSize(20); ```<br>
