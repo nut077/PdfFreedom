@@ -242,6 +242,6 @@
     table.append("<td><u>true</u>font underline</td>");
     ```
     ##### ผลลัพธ์ที่ได้คือ
-    [![Capture.png](https://s31.postimg.cc/h4myw66aj/Capture.png)](https://postimg.cc/image/9bwb470bb/)
+    [![Capture.png](https://s33.postimg.cc/p1p20bze7/Capture.png)](https://postimg.cc/image/kskby5w4r/)
     <br><br>
    
