@@ -285,13 +285,22 @@
     [![Capture.png](https://s33.postimg.cc/z2tw9fuf3/Capture.png)](https://postimg.cc/image/4y5fo2pbv/)
     <br><br>
     
-    เปลี่ยนสีพื้นหลังคอลัมน์
+    เปลี่ยนสีพื้นหลัง
     ```java
     table.append("<td><background-color>orange</background-color>orange</td>");
     table.append("<td><background-color>green</background-color>green</td>");
     ```
     ##### ผลลัพธ์ที่ได้คือ
     [![Capture.png](https://s33.postimg.cc/i3pj7xgb3/Capture.png)](https://postimg.cc/image/iggxe3ykr/)
+    <br><br>
+    เปลี่ยนสีพื้นหลังแบบกำหนดสีเอง<br>
+    ใช้ tag ``` <background-color-new>กำหนดเลขสี red,green,blue</background-color-new> ```
+    ```java
+    table.append("<td><background-color-new>0,204,255</background-color-new>new color 0,204,255</td>");
+    table.append("<td><background-color-new>204,255,51</background-color-new>new color 204,255,51</td>");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s33.postimg.cc/yh9iqrr7z/Capture.png)](https://postimg.cc/image/88ye1e74b/)
     <br><br>
     เปลี่ยนสีตัวอักษร
     ```java
@@ -301,5 +310,15 @@
     ##### ผลลัพธ์ที่ได้คือ
     [![Capture.png](https://s33.postimg.cc/tg24pshb3/Capture.png)](https://postimg.cc/image/uv3peiie3/)
     <br><br>
+    เปลี่ยนสีตัวอักษรแบบกำหนดสีเอง<br>
+    ใช้ tag ``` <font-color-new>กำหนดเลขสี red,green,blue</font-color-new> ```
+    ```java
+    table.append("<td><font-color-new>0,204,255</font-color-new>new color 0,204,255</td>");
+    table.append("<td><font-color-new>102,0,204</font-color-new>new color 102,0,204</td>");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s33.postimg.cc/l0ck8644f/Capture.png)](https://postimg.cc/image/yu0wx7wpn/)
+    <br><br>
+    
     
    
