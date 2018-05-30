@@ -56,6 +56,26 @@
     [![Capture.png](https://s22.postimg.cc/y19osylgx/Capture.png)](https://postimg.cc/image/qlaf75xrh/)
     <br><br>
     
+* **กำหนดความกว้างของตาราง**<br>
+ใช้ tag ```<table-width>ขนาด 1-100</table-width> โดยวางไว้ต่อจาก tag <table>``` ค่าเริ่มต้นคือ 100
+    ```java
+    table.append("<table>");
+        table.append("<table-width>50</table-width>");
+        table.append("<tr>");
+            table.append("<td>width 50</td>");
+        table.append("</tr>");
+    table.append("</table>");
+    table.append("<table>");
+        table.append("<table-width>100</table-width>");
+        table.append("<tr>");
+            table.append("<td>width 100</td>");
+        table.append("</tr>");
+    table.append("</table>");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s33.postimg.cc/58cy7hw9b/Capture.png)](https://postimg.cc/image/82g3kxyff/)
+    <br><br>
+    
 * **ผสานเซลล์ แนวนอน**<br>
 ใช้ tag ```<colspan>ตัวเลขที่ต้องการ</colspan>```
     ```java
@@ -243,5 +263,24 @@
     ```
     ##### ผลลัพธ์ที่ได้คือ
     [![Capture.png](https://s33.postimg.cc/p1p20bze7/Capture.png)](https://postimg.cc/image/kskby5w4r/)
+    <br><br>
+    
+* **สี**<br>
+ใช้ tag ```<background-color>รูปแบบตาม list ข้างล่าง</background-color> เมื่อต้องการเปลี่ยนสีพื้นหลัง``` ค่าเริ่มต้นคือ ไม่มีสี<br>
+ใช้ tag ```<font-color>รูปแบบตาม list ข้างล่าง</font-color> เมื่อต้องการเปลี่ยนสีตัวอักษร``` ค่าเริ่มต้นคือ black
+    - white
+    - light_gray
+    - gray
+    - dark_gray
+    - black
+    - red
+    - pink
+    - orange
+    - yellow
+    - green
+    - magenta
+    - cyan
+    - blue
+    [![Capture.png](https://s33.postimg.cc/z2tw9fuf3/Capture.png)](https://postimg.cc/image/4y5fo2pbv/)
     <br><br>
    
