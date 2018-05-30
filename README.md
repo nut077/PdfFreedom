@@ -475,7 +475,7 @@
     ##### ผลลัพธ์ที่ได้คือ
     [![Capture.png](https://s33.postimg.cc/7ez9viz5b/Capture.png)](https://postimg.cc/image/484qbwep7/)
     <br><br>
-    เปลี่ยนตำแหน่งของการแสดงจำนวนหน้าไปไว้ตำแหน่งล่างสุด setPageNumberToBottom() ตัวอย่าง  ``` pdfFreedom.setPageNumberToBottom(); ``` <br>
+    เปลี่ยนตำแหน่งของการแสดงจำนวนหน้าไปไว้ตำแหน่งล่างสุด setPageNumberToBottom() ตัวอย่าง  ``` pdfFreedom.setPageNumberToBottom(); ``` <br><br>
     เปลี่ยนขนาดตัวอักษร setPageNumberFontSize(ขนาด) ตัวอย่าง  ``` pdfFreedom.setPageNumberFontSize(20); ``` <br>
     ##### ผลลัพธ์ที่ได้คือ
     [![Capture.png](https://s22.postimg.cc/b2200hou9/Capture.png)](https://postimg.cc/image/ngos0tgcd/)
