@@ -451,5 +451,32 @@
     pdfFreedom.setPageNumberShow();
     pdfFreedom.write();
     ```
+    ##### ผลลัพธ์ที่ได้คือ
     [![Capture.png](https://s22.postimg.cc/hbso9qjfl/Capture.png)](https://postimg.cc/image/kvelzjm59/)
-    
+    <br><br>
+    เปลี่ยนคำว่า “หน้าที่” กับ “/” ``` setPageNumberText("แทนคำว่าหน้าที่", "แทนคำว่า /"); ```<br>
+    ตัวอย่าง<br>
+    ```java
+    pdfFreedom.setPageNumberText("page", "of");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s33.postimg.cc/den0z9ze7/Capture.png)](https://postimg.cc/image/5lwd7atez/)
+    <br><br>
+    เปลี่ยนตำแหน่งของการแสดงจำนวนหน้า ``` setPageNumberAlign("left or center or right"); ``` ค่าเริ่มต้นคือ right<br>
+     ```java
+    pdfFreedom.setPageNumberAlign("left");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s33.postimg.cc/tcvqppr4v/Capture.png)](https://postimg.cc/image/9i9p3lbx7/)
+    <br><br>
+     ```java
+    pdfFreedom.setPageNumberAlign("center");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s33.postimg.cc/7ez9viz5b/Capture.png)](https://postimg.cc/image/484qbwep7/)
+    <br><br>
+    เปลี่ยนตำแหน่งของการแสดงจำนวนหน้าไปไว้ตำแหน่งล่างสุด setPageNumberToBottom() ตัวอย่าง  ``` pdfFreedom.setPageNumberToBottom(); ``` <br>
+    เปลี่ยนขนาดตัวอักษร setPageNumberFontSize(ขนาด) ตัวอย่าง  ``` pdfFreedom.setPageNumberFontSize(20); ``` <br>
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s22.postimg.cc/b2200hou9/Capture.png)](https://postimg.cc/image/ngos0tgcd/)
+    <br><br>
