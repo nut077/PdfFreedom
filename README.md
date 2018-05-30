@@ -284,4 +284,22 @@
     
     [![Capture.png](https://s33.postimg.cc/z2tw9fuf3/Capture.png)](https://postimg.cc/image/4y5fo2pbv/)
     <br><br>
+    
+    เปลี่ยนสีพื้นหลังคอลัมน์
+    ```java
+    table.append("<td><background-color>orange</background-color>orange</td>");
+    table.append("<td><background-color>green</background-color>green</td>");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s33.postimg.cc/i3pj7xgb3/Capture.png)](https://postimg.cc/image/iggxe3ykr/)
+    <br><br>
+    เปลี่ยนสีตัวอักษร
+    ```java
+    table.append("<td><font-color>orange</font-color>orange</td>");
+    table.append("<td><font-color>green</font-color>green</td>");
+    ```
+    ##### ผลลัพธ์ที่ได้คือ
+    [![Capture.png](https://s33.postimg.cc/tg24pshb3/Capture.png)](https://postimg.cc/image/uv3peiie3/)
+    <br><br>
+    
    
